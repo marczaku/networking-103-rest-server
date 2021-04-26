@@ -6,7 +6,7 @@ In total, our steps will include:
 - An Acme.com Weblink Browser
 - Exploring an existing REST-API through HTTP
 - Building a Bikesharing Console Application
-- Building a 
+- Building a REST Game App
 
 ## Grading
 |Grade  |  Requirement |
