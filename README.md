@@ -112,6 +112,9 @@ So, what is our server supposed to do?
   - In other words, this history has to be separate from the Back-History.
 - Implement a Goto-Button: If the User inputs 'g' for Goto, he can afterwards enter a URL of his own.
 - Investigate options of using `XMLReader` instead of searching the `HTML`-Response manually.
+  - Do this optional (as in replacable with interfaces)
+  - So that I can see, that you also got a solution working
+  - Where you manually search the string
 
 
 ## Part 2: GitHub Explorer
