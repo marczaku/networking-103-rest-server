@@ -22,7 +22,7 @@ In total, our steps will include:
 - Install Unity Hub & Unity.
 
 ## Remarks
-- In the first Exercise, we are not using any HTTP-Classes, but manually using the HTTP-Protocol for educational purposes.
+- In the first Exercise, we are not using any HTTP-Classes, but manually using the HTTP-Protocol with a TCP-Client for educational purposes.
 
 
 ## Part 1 - Tiny Browser:
