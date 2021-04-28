@@ -262,10 +262,14 @@ public interface IGitHubAPI {
 
 public interface IUser {
    IRepository GetRepository(string repositoryName);
+   string Name {get;}
+   string Location {get;}
 }
 
 public interface IRepository {
    List<IIssue> GetIssues();
+   string Name {get;}
+   string Description {get;}
 }
 
 void Main(){
