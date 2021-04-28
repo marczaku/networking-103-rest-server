@@ -43,7 +43,7 @@ Else, this command should have created a new C# Project for you. You can go ahea
 
 Add a `.gitignore` in your `TinyBrowser`-Folder that ignores anything you don't want to commit.\
 For C# Console Projects, that's at least the `/bin/` and `/obj/`-Folders.\
-Afterwards, you may safely go ahead and create a new commit `adds time server project`
+Afterwards, you may safely go ahead and create a new commit `adds tiny browser project`
 
 ### Implementation
 - You will need: 
@@ -153,7 +153,53 @@ Host: google.com
 
 ## Part 2: GitHub Explorer
 
-- TBD
+<img width="703" alt="image" src="https://user-images.githubusercontent.com/7360266/116456208-46062000-a862-11eb-8bd0-566e7939c265.png">
+
+
+## Goal
+To have a small GitHub Repository Browser by accessing GitHub's public REST API to receive information.
+
+### Preparing a Project
+Create a folder named `GitHubExplorer`\
+Open the Terminal in that Folder
+Now, use the command `dotnet new console`\
+Add a `.gitignore` in your `GitHubExplorer`-Folder that ignores anything you don't want to commit.\
+For C# Console Projects, that's at least the `/bin/` and `/obj/`-Folders.\
+Afterwards, you may safely go ahead and create a new commit `adds github explorer project`
+
+### Implementation
+- You will need: 
+- The `HttpClient`-class which can be created by using its constructor. It is used for making Http-Requests.
+  - `DefaultRequestHeaders.Add` can be used to accept default headers that you want all your requests to have.
+  - `Dispose` needs to be called when you are done using the `HttpClient`.
+  - `Send` and `SendAsync` can be used to send an `HttpRequestMessage` and receive a `HttpResponseMessage`.
+- The `HttpRequestMessage`-class can be created by using its constructor
+  - The `HttpMethod`-argument defines the HTTP-Method that you are calling. We will mostly, or exclusively use `HttpMethod.Get`
+  - The `requestUri`-argument needs to point at the REST API's endpoint.
+  - The `Headers.Add`-Method can be used to add headers.
+    - e.g. `request.Headets.Add("Content-Language", "se");` would add a header requesting Swedish Content-Language.
+- The `HttpResponseMessage`-class contains all sorts of information that has been sent as a response.
+  - `StatusCode` contains the HTTP-StatusCode, e.g. `200: OK`
+  - `Headers` contains all HTTP-Headers as Key-Value-Pairs.
+  - `response.Content.ReadAsStream()` can be used to receive a stream for the HTTP-Body of the response.
+- The `StreamReader`-class has a constructor that you need to pass a `Stream` into.
+  - `ReadToEnd` allows you to read a full string from the stream.
+- `JsonSerializer.Deserialize<T>(string jsonText)` Can convert a `string` to a C#-class of type `T` for you.
+  - It requires, that you create a class that matches the response structure.
+  - All fields that are returned should exist as a public property with getter and setter.
+  - e.g.: Response: `{"name":"Marc Zaku", "job": "Teacher"}` 
+  -       Class: `public class UserResponse{public string name{get;set;} public string job {get; set;}}
+  -       Use: `var userResponse = JsonSerializer.Deserialize<UserResponse>(responseJsonText);`
+
+So, what is our GitHub Explorer supposed to do?
+- Ask the User for a User Name that he'd like to explore.
+- Send a HTTP Request to `https://api.github.com/users/{username}` (replace {username} with the user input).
+- You can read on the API over here: https://docs.github.com/en/rest/reference/users#get-a-user
+- The Response-Object is defined there as well.
+- Among others, it contains the fields `name` and `company` which you are able to parse using the JSON-Parse.
+  - As a reference, check out above sample on `JsonSerializer`.
+- You will also find all other APIs documented over there :)
+
 
 ## Part 3: Lame-Scooter
 
