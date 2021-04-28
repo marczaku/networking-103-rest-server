@@ -203,10 +203,10 @@ In your user-settings (https://github.com/settings/tokens/new), you'll have to c
 So, what is our GitHub Explorer supposed to do?
 - Ask the User for a User Name that he'd like to explore.
 - Send a HTTP Request to `https://api.github.com/users/{username}` (replace {username} with the user input).
-- You can read on the API over here: https://docs.github.com/en/rest/reference/users#get-a-user
 - You can read on how to authenticate over REST API over here: https://docs.github.com/en/rest/guides/getting-started-with-the-rest-api
   - In short: you will need a Header with the key `Authorization` and the value `token {yourtoken}`
   - You want to be authenticated with all Requests. Consider using DefaultRequestHeaders :)
+- You can read on the API over here: https://docs.github.com/en/rest/reference/users#get-a-user
 - The Response-Object is defined there as well.
 - Among others, it contains the fields `name` and `company` which you are able to parse using the JSON-Parse.
   - As a reference, check out above sample on `JsonSerializer`.
