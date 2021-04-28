@@ -51,16 +51,40 @@ Afterwards, you may safely go ahead and create a new commit `adds time server pr
   - `GetStream` again gets you the current stream used for the client. It returns a `Stream`.
   - `Close` needs to be called when you are done using the `TcpClient`.
 - The `Stream`-class is returned by `GetStream`
-  - `Write` allows you to send Bytes over the socket.
-  - `Read` allows you to read Bytes over the socket.
+  - `Write` allows you to send Bytes over the socket. (Consider using `StreamWriter` though)
+  - `Read` allows you to read Bytes over the socket. (Consider using `StreamReader` though)
   - `Close` needs to be called when you are done sending bytes over the stream.
+- The `StreamWriter`-class has a constructor that you need to pass a `Stream` into.
+  - `Write` allows you to send a string or any other data over the socket.
+- The `StreamReader`-class has a constructor that you need to pass a `Stream` into.
+  - `ReadToEnd` allows you to read a full string from the socket.
 - `Encoding.ASCII.GetBytes` Can convert a `string` to ASCII-`byte[]` for you.
-- `Encoding.ASCII.GetString` Can convert a `byte[]` to a `string`. 
+- `Encoding.ASCII.GetString` Can convert a `byte[]` to a `string`.
+- `string`
+  - `IndexOf(string value, int startIndex)` 
+    - Can Find the Index at which a `string` can be found within another. 
+    - Returns `-1` if no results were found.
+    - e.g.: "Hello World".IndexOf("ll") will return 2.
+    - e.g.: "Hello World".IndexOf("Planet") will return -1.
+  - `Substring(int startIndex, int length)`
+    - Returns the substring of a string between character number `startIndex` and `statIndex + length`.
+    - e.g.: "Hello World".Substring(3, 4) will return "lo W";
+  - `Path.Combine(string a, string b)`
+    - Returns a combined path of a and b. handles dot-notiation `.` and `..` correctly automatically.
 
 So, what is our server supposed to do?
 - Send a TCP Request to acme.com using Port 80
 - Using the HTTP Protocol
-  - I recommend trying your way with HTTP 0.9 first, then HTTP 1.1
+  - I recommend using HTTP 1.1.
+  - Make sure to follow the Exact guidelines.
+  - Every line is supposed to end with `CRLF` (carriage return). In C# that's `"\r\n"`
+  - This is, what a HTTP/1.1-Request might look like:
+```
+GET / HTTP/1.1
+Host: google.com
+
+```
+  - Especially don't forget the empty line at the end of your request and the Host-Header :)
 - Use a TCP Client.
 - Get the Stream.
 - Write a valid HTTP-Request to the Stream.
@@ -94,12 +118,22 @@ So, what is our server supposed to do?
   - it should be a Number between 0 and the number of options
   - Follow the link that the user wants to follow and start at the beginning of the application again
   - (Send a TCP Request to acme.com...)
- 
+  - There is a few cases of URLs to consider. Some of them might be links, but...:
+    - not to another web page, e.g. `<a href="image.png">` might be a link to an image.
+      - i suggest skipping these links
+    - to another host, e.g. `<a href="http://google.com/search/settings">`
+      - replace the host with `google.com` and the path with `/search/settings/`
+    - to a local url, e.g. `<a href="search"> when currently being at host `acme.com` and the path `/hello/world/`
+      - keep the host and replace the path with `/hello/world/search/`
+    - to a parent url, e.g. `<a href="../another"> when currently being at host `acme.com` and the path `/hello/world/`
+      - keep the host and simply replace the path with `/hello/world/../another/` or `/hello/another/`
 
 
 
 
 ### Bonus:
+- Prettify the Output: Replace any link description that's longer than 15 chars with a shorter version of the first and last 6 chars and ... in the middle.
+  - e.g.: `"HelloMyPrettyWorld"` becomes `"HelloM..yWorld"`
 - Implement a Back-Button: If the User inputs 'b' for Back, go back (to the previously visited Website.
   - Make sure, to not go forward, when going back twice :)
 - Implement a Forward-Button: If the User inputs 'f' for Forward, go forward.
