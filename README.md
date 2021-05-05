@@ -287,7 +287,8 @@ Do you only see Advantages, or are there also disadvantages?
 
 ## Part 3: Lame-Scooter
 
-- TBD
+<img width="564" alt="image" src="https://user-images.githubusercontent.com/7360266/117221072-d4514780-ae08-11eb-91e9-cfc6a680c4d8.png">
+
 
 ## Part 4: 
 
