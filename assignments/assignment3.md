@@ -98,7 +98,7 @@ If you want to debug your application with arguments, follow the steps on the [R
 In order to be able to easily exchange our Database-Implementations later, create the following interface:
 
 ```cs
-public interface ILameScooterRental
+public interface I.Rental
 {
     Task<int> GetScooterCountInStation(string stationName);
 }
@@ -198,7 +198,7 @@ If you haven't yet, follow your OS' `Install MongoDB`-Tutorial and make sure to 
 - Use `db` to see the current database's name.
 - Use `use lamescooters` to switch to / create a collection named lamescooters.
 - Use `db.lamescooters.insertMany([.......]);` but replace `[.....]` with the part that you find in the `scooters.json`-file. Make sure, to select the WHOLE CONTENT between `[` and `]`.
-- Try querying a station by using `db.lamescooter.find({"name":"Lammasrinne"});`. It should return exactly one station with that name.
+- Try querying a station by using `db.lamescooters.find({"name":"Lammasrinne"});`. It should return exactly one station with that name.
 
 Now, follow the QuickTour of the Mongo C# Driver to find out, how to query a station from that database and try to return the available bike count.
 
