@@ -31,7 +31,7 @@ Each of these grades expects the previous requirements as well as its own requir
 - In the first Exercise, we are not using any HTTP-Classes, but manually using the HTTP-Protocol with a TCP-Client for educational purposes.
 
 ## List of Assignments:
-- 1. [Tiny Browser]()
+- 1. [Tiny Browser](assignments/assignment1.md)
 - 2. [Github Explorer](assignments/assignment2.md)
 - 3. [Lame Scooter](assignments/assignment3.md)
 - 4. [REST-MO](assignments/assignment4.md)
