@@ -200,6 +200,9 @@ If you haven't yet, follow your OS' `Install MongoDB`-Tutorial and make sure to 
 - Use `db.lamescooters.insertMany([.......]);` but replace `[.....]` with the part that you find in the `scooters.json`-file. Make sure, to select the WHOLE CONTENT between `[` and `]`.
 - Try querying a station by using `db.lamescooters.find({"name":"Lammasrinne"});`. It should return exactly one station with that name.
 
+Add MongoDB.Driver as a package to your Project, so you can use MongoDB in C#:
+`dotnet add package MongoDB.Driver`
+
 Now, follow the QuickTour of the Mongo C# Driver to find out, how to query a station from that database and try to return the available bike count.
 
 ---
