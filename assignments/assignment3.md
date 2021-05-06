@@ -98,7 +98,7 @@ If you want to debug your application with arguments, follow the steps on the [R
 In order to be able to easily exchange our Database-Implementations later, create the following interface:
 
 ```cs
-public interface ILameScooterRental
+public interface I.Rental
 {
     Task<int> GetScooterCountInStation(string stationName);
 }
@@ -132,6 +132,11 @@ More Details:
 - Deserialize the string to a C# object using `JsonSerializer.Deserialize<LameScooterStationList>`
 - Find the information you are looking for from the `LameScooterStationList` (scooter count in a certain station) and return it as the result from the method
 
+Samples:
+- `dotnet run Linnanmäki`
+- `dotnet run Sepänkatu`
+- `dotnet run Pohjolankatu`
+
 ---
 
 ### 4. Handle Argument Errors
@@ -152,15 +157,30 @@ Create a class called `DeprecatedLameScooterRental` which also implements the `I
 
 How much code can you share? How much code do you have to duplicate?
 
+Samples:
+- `dotnet run Linnanmäki`
+- `dotnet run Sepänkatu`
+- `dotnet run Pohjolankatu`
+
 ---
 
 ### 7. Implement more Command Line Arguments
 Make the console application accept an additional, optional string argument, `offline` or `deprecated` and decide the implementation of `ILameScooterRental` based on that.
 
+Samples:
+- `dotnet run Linnanmäki offline`
+- `dotnet run Sepänkatu deprecated`
+- `dotnet run Pohjolankatu offline`
+
 ---
 
 ### 8. RealTime-Bike-Data
 Create a class called `RealTimeLameScooterRental` which also implements the `ILameScooterRental`-Interface. Make it load the BikeData using a HTTP-GET-Request on the URL `https://raw.githubusercontent.com/marczaku/GP20-2021-0426-Rest-Gameserver/main/assignments/scooters.json` and use the result of that request. Use the argument `realtime` to decide the implementation of `ILameScooterRental` with this new class.
+
+Samples:
+- `dotnet run Linnanmäki realtime`
+- `dotnet run Sepänkatu realtime`
+- `dotnet run Pohjolankatu realtime`
 
 ---
 
@@ -183,9 +203,17 @@ If you haven't yet, follow your OS' `Install MongoDB`-Tutorial and make sure to 
 - Use `db` to see the current database's name.
 - Use `use lamescooters` to switch to / create a collection named lamescooters.
 - Use `db.lamescooters.insertMany([.......]);` but replace `[.....]` with the part that you find in the `scooters.json`-file. Make sure, to select the WHOLE CONTENT between `[` and `]`.
-- Try querying a station by using `db.lamescooter.find({"name":"Lammasrinne"});`. It should return exactly one station with that name.
+- Try querying a station by using `db.lamescooters.find({"name":"Lammasrinne"});`. It should return exactly one station with that name.
+
+Add MongoDB.Driver as a package to your Project, so you can use MongoDB in C#:
+`dotnet add package MongoDB.Driver`
 
 Now, follow the QuickTour of the Mongo C# Driver to find out, how to query a station from that database and try to return the available bike count.
+
+Samples:
+- `dotnet run Linnanmäki mongodb`
+- `dotnet run Sepänkatu mongodb`
+- `dotnet run Pohjolankatu mongodb`
 
 ---
 
