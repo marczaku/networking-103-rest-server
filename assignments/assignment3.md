@@ -54,7 +54,7 @@ Afterwards, you may safely go ahead and create a new commit `adds lame scooter p
 ### Routines
 
 - Read the requested station name from the command line arguments.
-- Send a HTTP Request to `https://raw.githubusercontent.com/marczaku/GP20-2021-0426-Rest-Gameserver/main/assignments/scooters.json` 
+- Load the [scooters.json-File](https://raw.githubusercontent.com/marczaku/GP20-2021-0426-Rest-Gameserver/main/assignments/scooters.json)
 - Look at the Format of the JSON-Response. Create classes that resemble the structure of the response.
 - Use the `JsonSerializer.Deserialize<T>`-Method to deserialize the JSON-`string` to a C# object.
 - Search the stations for a station with a matching name.
