@@ -177,6 +177,11 @@ Samples:
 ### 8. RealTime-Bike-Data
 Create a class called `RealTimeLameScooterRental` which also implements the `ILameScooterRental`-Interface. Make it load the BikeData using a HTTP-GET-Request on the URL `https://raw.githubusercontent.com/marczaku/GP20-2021-0426-Rest-Gameserver/main/assignments/scooters.json` and use the result of that request. Use the argument `realtime` to decide the implementation of `ILameScooterRental` with this new class.
 
+Samples:
+- `dotnet run Linnanmäki realtime`
+- `dotnet run Sepänkatu realtime`
+- `dotnet run Pohjolankatu realtime`
+
 ---
 
 ### BONUS: 9. MongoDB Database
@@ -204,6 +209,11 @@ Add MongoDB.Driver as a package to your Project, so you can use MongoDB in C#:
 `dotnet add package MongoDB.Driver`
 
 Now, follow the QuickTour of the Mongo C# Driver to find out, how to query a station from that database and try to return the available bike count.
+
+Samples:
+- `dotnet run Linnanmäki mongodb`
+- `dotnet run Sepänkatu mongodb`
+- `dotnet run Pohjolankatu mongodb`
 
 ---
 
