@@ -132,6 +132,11 @@ More Details:
 - Deserialize the string to a C# object using `JsonSerializer.Deserialize<LameScooterStationList>`
 - Find the information you are looking for from the `LameScooterStationList` (scooter count in a certain station) and return it as the result from the method
 
+Samples:
+- `dotnet run Linnanmäki`
+- `dotnet run Sepänkatu`
+- `dotnet run Pohjolankatu`
+
 ---
 
 ### 4. Handle Argument Errors
@@ -152,10 +157,20 @@ Create a class called `DeprecatedLameScooterRental` which also implements the `I
 
 How much code can you share? How much code do you have to duplicate?
 
+Samples:
+- `dotnet run Linnanmäki`
+- `dotnet run Sepänkatu`
+- `dotnet run Pohjolankatu`
+
 ---
 
 ### 7. Implement more Command Line Arguments
 Make the console application accept an additional, optional string argument, `offline` or `deprecated` and decide the implementation of `ILameScooterRental` based on that.
+
+Samples:
+- `dotnet run Linnanmäki offline`
+- `dotnet run Sepänkatu deprecated`
+- `dotnet run Pohjolankatu offline`
 
 ---
 
