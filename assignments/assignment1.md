@@ -1,4 +1,4 @@
-# Part 1 - Tiny Browser:
+# Part 1 - Tiny Browser (50 Points):
 
 <img width="579" alt="image" src="https://user-images.githubusercontent.com/7360266/116148852-bcc7df80-a6e1-11eb-9282-370e37c97fc6.png">
 

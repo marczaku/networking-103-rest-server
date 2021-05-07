@@ -1,4 +1,4 @@
-# Part 3: Lame Scooter
+# Part 3: Lame Scooter (20 Points)
 
 ---
 
@@ -15,13 +15,11 @@ Add a `.gitignore` in your `LameScooter`-Folder that ignores anything you don't 
 For C# Console Projects, that's at least the `/bin/` and `/obj/`-Folders.\
 Afterwards, you may safely go ahead and create a new commit `adds lame scooter project`
 
-<img width="564" alt="image" src="https://user-images.githubusercontent.com/7360266/117221072-d4514780-ae08-11eb-91e9-cfc6a680c4d8.png">
-
 ---
 
 ## Implementation
 
-### Required Methods
+### Required Methods (List Incomplete)
 
 - `JsonSerializer.Deserialize<T>(string jsonText, JsonSerializerOptions options)` Can convert a `string` to a C#-class of type `T` for you.
   - I recommend this time, to pass `JsonSerializerOptions` and set
@@ -31,7 +29,7 @@ Afterwards, you may safely go ahead and create a new commit `adds lame scooter p
   - It requires, that you create a class that matches the response structure.
   - All fields that are returned should exist as a public property with getter and setter.
   - e.g.: Response: `{"name":"Marc Zaku", "job": "Teacher"}` 
-  - class: `public class UserResponse{public string Name{get;set;} public string Job {get; set;}}`
+  - class: `public class UserResponse{public string Name {get;set;} public string Job {get; set;}}`
   - use: `var userResponse = JsonSerializer.Deserialize<UserResponse>(responseJsonText, jsonSerializerOptions);`
 - The `HttpClient`-class which can be created by using its constructor. It is used for making Http-Requests.
   - `DefaultRequestHeaders.Add` can be used to accept default headers that you want all your requests to have.
@@ -98,7 +96,7 @@ If you want to debug your application with arguments, follow the steps on the [R
 In order to be able to easily exchange our Database-Implementations later, create the following interface:
 
 ```cs
-public interface I.Rental
+public interface ILameScooterRental
 {
     Task<int> GetScooterCountInStation(string stationName);
 }
@@ -121,9 +119,14 @@ static async Task Main(string[] args)
 
 ### 3. Create a class implementing the interface
 
+
+
+<img width="564" alt="image" src="https://user-images.githubusercontent.com/7360266/117221072-d4514780-ae08-11eb-91e9-cfc6a680c4d8.png">
+
 To prepare this part, Download [scooters.json](https://raw.githubusercontent.com/marczaku/GP20-2021-0426-Rest-Gameserver/main/assignments/scooters.json) from this repository and copy it into your LameScooter-Project, right next to `LameScooter.csproj` and `Program.cs`
 Create a class named `OfflineLameScooterRental` which implements `ILameScooterRental` and loads the text form the file `scooters.json` and parses the text into a C# Object.
 In order for this to work, you will have to make sure, that the json file gets copied to your built application as well. To do so, right-click the `scooters.json`-file in Rider and open its Properties. Change `Copy to Output Directory` to `Copy Always`.
+
 Now, when you have parsed the information into a C#-Object, find the right station for the given name, and return the amount of bikes available at this station.
 
 More Details:
@@ -153,7 +156,7 @@ Catch it in the calling code and print "Could not find: " and the Message Proper
 ---
 
 ### 6. Create an alternative implementation
-Create a class called `DeprecatedLameScooterRental` which also implements the `ILameScooterRental`-Interface. Download [scooters.json](https://raw.githubusercontent.com/marczaku/GP20-2021-0426-Rest-Gameserver/main/assignments/scooters.txt) and also put it into your project and again make sure, that it gets copied when Building. Find a way to read the required data from the file.
+Create a class called `DeprecatedLameScooterRental` which also implements the `ILameScooterRental`-Interface. Download [scooters.txt](https://raw.githubusercontent.com/marczaku/GP20-2021-0426-Rest-Gameserver/main/assignments/scooters.txt) and also put it into your project and again make sure, that it gets copied when Building. Find a way to read the required data from the file.
 
 How much code can you share? How much code do you have to duplicate?
 

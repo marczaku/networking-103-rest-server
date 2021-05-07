@@ -11,20 +11,20 @@ In total, our steps will include:
 ## Grading
 |Grade  |  Requirement |
 |-------|:-------------|
-|Summa Cum laude (A*)| 90% Scored on Assignment 4.\*\*|
-| Magna Cum Laude (A)| 75% Scored on Assignment 4.\*\*|
-|Cum Laude (B)| 60% Scored on Assignment 4.\*)|
-|Passed (C)| 50 % Scored on Assignment 4.\*)|
-|Barely Passed (D)| Assignment 3 Implemented. |
-|Insufficient (E)| Assignment 1 + 2 Implemented. |
-|Failed (F)| |
+|Summa Cum laude (A*)| > 90%|
+| Magna Cum Laude (A)| 80-89%|
+|Cum Laude (B)| 70-79%|
+|Passed (C)| 60-69%|
+|Barely Passed (D)| 50-59% |
+|Insufficient (E)| 10-49% |
+|Failed (F)| < 10% |
 -------------------------------
-Each of these grades expects the previous requirements as well as its own requirements to be fulfilled.\
+Each of these grades expects the previous requirements as well as its own requirements to be fulfilled.
 
 
 ## Prerequisites / Requirements
 - Make sure, that .NET Core 5 SDK is installed from https://www.microsoft.com/net/download
-- I recommend to use Jetbrains Rider as an IDE.\
+- I recommend to use Jetbrains Rider as an IDE.
 - Install Unity Hub & Unity.
 
 ## Remarks
@@ -34,4 +34,5 @@ Each of these grades expects the previous requirements as well as its own requir
 - 1. [Tiny Browser](assignments/assignment1.md)
 - 2. [Github Explorer](assignments/assignment2.md)
 - 3. [Lame Scooter](assignments/assignment3.md)
-- 4. [REST-MO](assignments/assignment4.md)
+- 4. [MMO-RPG Pre-Production](assignments/assignment4-preproduction.md)
+- 5. [MMO-RPG](assignments/assignment4.md)

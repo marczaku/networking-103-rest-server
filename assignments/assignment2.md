@@ -1,4 +1,4 @@
-# Part 2: GitHub Explorer
+# Part 2: GitHub Explorer (50 Points)
 
 <img width="703" alt="image" src="https://user-images.githubusercontent.com/7360266/116456208-46062000-a862-11eb-8bd0-566e7939c265.png">
 
