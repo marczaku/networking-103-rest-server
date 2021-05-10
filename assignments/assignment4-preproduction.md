@@ -90,7 +90,7 @@ The second responsibility is to handle the business logic. Business logic is a t
 
 Create a class called `PlayersController`. Add and implement the following methods:
 
-`PlayersController` should get `IRepository` through its constructor. We will learn later, how we can provide this information through Dependency Injection.
+`PlayersController` should get `IRepository` through its constructor. We will learn later, how we can provide this information through Dependency Injection (the DI-Container)
 
 ```C#
 public Task<Player> Get(Guid id);
@@ -107,6 +107,20 @@ public Task<Player> Delete(Guid id);
 Register `FileRepository` to the DI-container in `Startup.ConfigureServices()`-Method.
 
 Registering the `FileRepository` as `IRepository` into the dependency injection container enables changing the implementation later on when we start using `MongoDB` as the database.
+
+```cs
+// This Method is part of your Startup.cs:
+
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllers();
+
+            // Register IRepository implementation to the DI-container
+            services.AddSingleton<IRepository, FileRepository>();
+        }
+```
+
+This will make ASP.Net pass the `FileRepository` to the constructor of our `PlayersController`.
 
 ---
 
