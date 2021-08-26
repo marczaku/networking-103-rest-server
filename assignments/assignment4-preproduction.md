@@ -88,7 +88,7 @@ The first responsibility of the controller is to define the routes for the API. 
 
 The second responsibility is to handle the business logic. Business logic is a term for the core of your application. Everything that creates transactions that change your data / model. This can include things such as generating IDs when creating a player, and deciding which properties to change when modifying a player.
 
-Create a class called `PlayersController`. Add and implement the following methods:
+Create a class called `PlayersController` that inherits from `Microsoft.AspNetCore.Mvc.ControllerBase`. Add and implement the following methods:
 
 `PlayersController` should get `IRepository` through its constructor. We will learn later, how we can provide this information through Dependency Injection (the DI-Container)
 
