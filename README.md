@@ -23,7 +23,7 @@ Each of these grades expects the previous requirements as well as its own requir
 
 
 ## Prerequisites / Requirements
-- Make sure, that .NET Core 5 SDK is installed from https://www.microsoft.com/net/download
+- Make sure, that .NET Core 6 SDK is installed from https://www.microsoft.com/net/download
 - I recommend to use Jetbrains Rider as an IDE.
 - Install Unity Hub & Unity.
 
