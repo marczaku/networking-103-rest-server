@@ -1,4 +1,4 @@
-# GP20-2021-0426-Rest-Gameserver
+# Networking 103 REST Server
 ## 1. Stuff
 ## Goal of this Assignment
 The goal of this assignment is to introduce you to developing REST-APIs using `C#`, `HTTP`, `JSON` and `ASP .NET Core`\
